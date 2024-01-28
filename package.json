@@ -1,0 +1,24 @@
+{
+  "name": "mern-renting-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engineStrict": true,
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-developer032/MERN-Folder-Structure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/web-developer032/MERN-Folder-Structure/issues"
+  },
+  "homepage": "https://github.com/web-developer032/MERN-Folder-Structure#readme"
+}
