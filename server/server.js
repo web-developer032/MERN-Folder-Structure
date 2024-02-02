@@ -1,5 +1,12 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv'); // module to use environment file
+import dotenv from 'dotenv'; // module to use environment file
+dotenv.config();
+
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+import app from './app.js';
+import { initializeDatabase } from './db.js';
+import asyncHandler from './utils/asyncHandler.js';
 
 // IT SHOULD BE ON TOP SO THAT WE CATCH EVERY ERROR
 // SOLVING UNCAUGHT EXCEPTION (for example a variable that is undefined)
@@ -12,45 +19,34 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-dotenv.config({ path: './config.env' });
+const initializeServer = asyncHandler(async () => {
+  const dbConnection = await initializeDatabase();
+  // console.log('DB CONNECTION: ', dbConnection);
 
-const app = require('./app');
+  let port = process.env.PORT || 8000;
 
-mongoose
-  .connect(
-    // process.env.DATABASE_ONLINE
-    process.env.DATABASE_OFFLINE,
-
-    // options
-    // , { useNewUrlParser: true }
-  )
-  .then((con) => {
-    console.log('Database Connection Successfull');
+  const server = app.listen(port, () => {
+    console.log('Listening at port: ', port);
   });
-// .catch((err) => {
-//   console.log("Database Connection failed");
-// });
 
-let port = process.env.PORT || 8000;
-const server = app.listen(port, () => {
-  console.log('Listening at port: ', port);
-});
+  // SOLVING UNHANDLED REJECTION (catch promise rejections etc)
+  process.on('unhandledRejection', (err) => {
+    console.log('🤷‍♂️ UNHANDLED REJECTION. Shutting Down! 🤦‍♂️');
+    console.log(err.name, err.message);
+    console.log(err);
+    server.close(() => {
+      // 0 for success
+      // 1 for uncaught exception
+      process.exit(1);
+    });
+  });
 
-// SOLVING UNHANDLED REJECTION (catch promise rejections etc)
-process.on('unhandledRejection', (err) => {
-  console.log('🤷‍♂️ UNHANDLED REJECTION. Shutting Down! 🤦‍♂️');
-  console.log(err.name, err.message);
-  console.log(err);
-  server.close(() => {
-    // 0 for success
-    // 1 for uncaught exception
-    process.exit(1);
+  process.on('SIGTERM', () => {
+    console.log('👌 SIGTERM RECIEVED. Shutting Down! 🤦‍♂️');
+    server.close(() => {
+      console.log('💥🔥 Process terminated.');
+    });
   });
 });
 
-process.on('SIGTERM', () => {
-  console.log('👌 SIGTERM RECIEVED. Shutting Down! 🤦‍♂️');
-  server.close(() => {
-    console.log('💥🔥 Process terminated.');
-  });
-});
+initializeServer();
