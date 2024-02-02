@@ -9,7 +9,8 @@
     "sourceType": "module"
   },
   "rules": {
-    "semi": "off",
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
     "space-before-function-paren": "off",
     "no-empty": "error",
     "no-unused-vars": "off",
@@ -18,6 +19,9 @@
     "no-unused-expressions": "error",
     "no-empty-function": "error",
     "no-return-await": "error",
-    "no-useless-return": "error"
+    "no-useless-return": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-duplicate-imports": "error"
   }
 }
