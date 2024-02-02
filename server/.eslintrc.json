@@ -10,6 +10,14 @@
   },
   "rules": {
     "semi": "off",
-    "no-empty": "error"
+    "space-before-function-paren": "off",
+    "no-empty": "error",
+    "no-unused-vars": "off",
+    "no-unreachable": "error",
+    "no-use-before-define": "error",
+    "no-unused-expressions": "error",
+    "no-empty-function": "error",
+    "no-return-await": "error",
+    "no-useless-return": "error"
   }
 }

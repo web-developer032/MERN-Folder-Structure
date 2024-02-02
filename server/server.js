@@ -21,6 +21,7 @@ process.on('uncaughtException', (err) => {
 
 const initializeServer = asyncHandler(async () => {
   const dbConnection = await initializeDatabase();
+  console.log('DB CONNECTION SUCCESSFULL');
   // console.log('DB CONNECTION: ', dbConnection);
 
   const port = process.env.PORT || 8000;
