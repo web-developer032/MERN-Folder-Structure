@@ -1,12 +1,12 @@
-import dotenv from 'dotenv'; // module to use environment file
-dotenv.config();
+import dotenv from 'dotenv';
 
 import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
 
 import app from './app.js';
 import { initializeDatabase } from './db.js';
-import asyncHandler from './utils/asyncHandler.js';
+import asyncHandler from './utils/asyncHandler.js'; // module to use environment file
+dotenv.config();
+const require = createRequire(import.meta.url);
 
 // IT SHOULD BE ON TOP SO THAT WE CATCH EVERY ERROR
 // SOLVING UNCAUGHT EXCEPTION (for example a variable that is undefined)
@@ -23,7 +23,7 @@ const initializeServer = asyncHandler(async () => {
   const dbConnection = await initializeDatabase();
   // console.log('DB CONNECTION: ', dbConnection);
 
-  let port = process.env.PORT || 8000;
+  const port = process.env.PORT || 8000;
 
   const server = app.listen(port, () => {
     console.log('Listening at port: ', port);
