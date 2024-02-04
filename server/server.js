@@ -6,6 +6,7 @@ import app from "./app.js";
 import { initializeDatabase } from "./db.js";
 import asyncHandler from "./utils/asyncHandler.js"; // module to use environment file
 dotenv.config();
+
 const require = createRequire(import.meta.url);
 
 // IT SHOULD BE ON TOP SO THAT WE CATCH EVERY ERROR
