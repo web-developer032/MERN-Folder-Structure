@@ -13,6 +13,7 @@
     "quotes": ["error", "double"],
     "comma-dangle": "off",
     "space-before-function-paren": "off",
+    "curly": "off",
     "no-empty": "error",
     "no-unused-vars": "error",
     "no-unreachable": "error",
