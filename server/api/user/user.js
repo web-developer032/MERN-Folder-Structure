@@ -52,7 +52,7 @@ const userSchema = new Schema(
       },
     },
 
-    photo: { type: String, default: "default.jpg" },
+    photo: { type: String, default: "user.png" },
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
