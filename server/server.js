@@ -4,8 +4,8 @@ import { createRequire } from "module";
 
 import app from "./app.js";
 import { initializeDatabase } from "./db.js";
-import asyncHandler from "./utils/asyncHandler.js"; // module to use environment file
-dotenv.config();
+import asyncHandler from "./utils/asyncHandler.js";
+dotenv.config(); // module to use environment file
 
 const require = createRequire(import.meta.url);
 

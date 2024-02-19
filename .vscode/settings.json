@@ -1,0 +1,16 @@
+{
+  "svg.preview.background": "transparent",
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "baseURL": "http://localhost:5000/",
+      "baseAPI": "http://localhost:5000/api"
+    },
+    "development": {
+      "userRoutes": "http://localhost:5000/api/users"
+    },
+    "production": {
+      "host": "example.com"
+      //   "token": "{{$shared }}",
+    }
+  }
+}
