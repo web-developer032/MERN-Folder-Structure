@@ -10,6 +10,7 @@ import xss from "xss-clean";
 
 import routes from "./routes";
 import { __dirname } from "./utils/common";
+import errorHandler from "./utils/errorHandler";
 
 const app = express();
 // IMPLEMENTING CORS SO THAT OTHER WEBSITES CAN USE OUR API
@@ -64,5 +65,9 @@ app.get("/ping", (req, res) => {
 routes.forEach((route) => {
   app.use(`/api/${route.path}`, route.router);
 });
+
+// Making Error Handling MIddleware.
+// if we pass 4 arguments express will automatically recognize it as an error handling middleware
+app.use(errorHandler);
 
 export default app;

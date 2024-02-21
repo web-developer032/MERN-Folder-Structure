@@ -18,6 +18,7 @@ process.on("uncaughtException", (err) => {
 });
 
 const initializeServer = asyncHandler(async () => {
+  // eslint-disable-next-line no-unused-vars
   const dbConnection = await initializeDatabase();
   console.log("DB CONNECTION SUCCESSFULL");
   // console.log('DB CONNECTION: ', dbConnection);
