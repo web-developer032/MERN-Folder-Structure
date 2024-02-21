@@ -3,13 +3,25 @@
 @userID = 616e22a0adcd1e9bf032eb86
 
 
+# -------------------
+# PING SERVER
+# -------------------
+###
+GET {{baseURL}}/ping
+# -------------------
+
 
 #----> User Routes
+# -------------------
 ### GET ALL USERS
+# -------------------
 GET {{userRoutes}}
 Authorization: Bearer {{token}}
+# -------------------
 
+# -------------------
 ### LOGIN USER
+# -------------------
 POST {{userRoutes}}/login
 Content-Type: application/json
 
@@ -17,8 +29,11 @@ Content-Type: application/json
     "email": "user@gmail.com",
     "password": "test1234"
 }
+# -------------------
 
+# -------------------
 ### SIGNUP USER
+# -------------------
 POST {{userRoutes}}/signup
 Content-Type: application/json
 
@@ -29,16 +44,22 @@ Content-Type: application/json
     "confirmPassword": "test1234",
     "role": "user"
 }
+# -------------------
 
+# -------------------
 ### FORGOT PASSWORD
+# -------------------
 POST {{userRoutes}}/forgotPassword
 Content-Type: application/json
 
 {
     "email" : "test1@gmail.com"
 }
+# -------------------
 
+# -------------------
 ### RESET PASSWORD
+# -------------------
 PATCH {{userRoutes}}/resetPassword/da733eb7043e7956c064381ef563752329d24746380a4c1ae63a52476ca280ed
 Content-Type: application/json
 
@@ -46,45 +67,63 @@ Content-Type: application/json
     "password" : "changedPassword",
     "confirmPassword" : "changedPassword"
 }
+# -------------------
 
+# -------------------
 ### UPDATE PASSWORD
+# -------------------
 PATCH {{userRoutes}}/updatePassword
 Content-Type: application/json
 Authorization: Bearer {{token}}
-
 
 {
     "currentPassword" : "changedPassword",
     "newPassword" : "updatedPassword",
     "confirmNewPassword" : "updatedPassword"
 }
+# -------------------
 
 
+# -------------------
 ### GET ME
+# -------------------
 GET {{userRoutes}}/me
+# -------------------
 
+# -------------------
 ### UPDATE ME
+# -------------------
 PATCH {{userRoutes}}/updateMe
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
-
 {
     "name": "admin updated"
 }
+# -------------------
 
+# -------------------
 ### DELETE ME
+# -------------------
 DELETE {{userRoutes}}/deleteMe
 Authorization: Bearer {{token}}
+# -------------------
 
 
-Authorization: Bearer {{token}}
-
+# -------------------
 ### GET USER BY ID
+# -------------------
 GET {{userRoutes}}/61504518afae40a1d49a6ced
+# -------------------
 
+# -------------------
 ### UPDATE USER BY ID
+# -------------------
 PATCH {{userRoutes}}/2
+# -------------------
 
+# -------------------
 ### DELETE USER BY ID
+# -------------------
 DELETE {{userRoutes}}/2
+# -------------------

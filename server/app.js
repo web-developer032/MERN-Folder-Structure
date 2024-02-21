@@ -18,8 +18,6 @@ app.use(cors()); // THIS WILL WORK FOR SIMPLE REQUESTS LIKE (GET AND POST) BUT N
 // FOR NON-SIMPLE REQUEST WE USE app.options request.
 app.options("*", cors()); // app.options() is just like app.get or post etc.
 
-app.enable("trust proxy");
-
 // GLOBAL MIDDLEWARE: SECURITY HTTP HEADER
 // USE HELMET IN THE START OF MIDDLEWARES i.e AS A FIRST MIDDLEWARE
 app.use(
