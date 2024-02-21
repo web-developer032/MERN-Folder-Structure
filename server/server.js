@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 
-import app from "./app.js";
-import { initializeDatabase } from "./db.js";
-import asyncHandler from "./utils/asyncHandler.js"; // module to use environment file
+import app from "./app";
+import { initializeDatabase } from "./db";
+import asyncHandler from "./utils/asyncHandler"; // module to use environment file
 
 dotenv.config();
 

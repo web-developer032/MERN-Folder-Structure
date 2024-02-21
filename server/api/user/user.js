@@ -1,7 +1,10 @@
-import { compare, hash } from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import { createHash, randomBytes } from "crypto";
 import { Schema, model } from "mongoose";
-import { isEmail } from "validator";
+import validator from "validator";
+
+const { compare, hash } = bcryptjs;
+const { isEmail } = validator;
 
 const USER_ROLES = {
   ADMIN: "admin",
@@ -29,7 +32,7 @@ const userSchema = new Schema(
 
     role: {
       type: String,
-      enum: Object.value(USER_ROLES),
+      enum: Object.values(USER_ROLES),
       default: USER_ROLES.USER,
     },
 

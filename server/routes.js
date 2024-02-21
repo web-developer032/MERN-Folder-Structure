@@ -1,4 +1,4 @@
-import userRoutes from "./api/user/user.routes.js";
+import userRoutes from "./api/user/user.routes";
 
 // app.use("/api/users", userRoutes);
 

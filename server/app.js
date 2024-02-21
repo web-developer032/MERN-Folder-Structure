@@ -8,8 +8,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import xss from "xss-clean";
 
-import routes from "./routes.js";
-import { __dirname } from "./utils/common.js";
+import routes from "./routes";
+import { __dirname } from "./utils/common";
 
 const app = express();
 // IMPLEMENTING CORS SO THAT OTHER WEBSITES CAN USE OUR API

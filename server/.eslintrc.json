@@ -8,6 +8,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "plugins": ["import"],
   "rules": {
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
